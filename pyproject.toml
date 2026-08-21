@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chainguard"
+version = "1.0.0"
+description = "Resilient semiconductor supply-chain route optimizer: MILP route assignment, Monte Carlo risk simulation, and multi-leg network optimization under disruption."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Richel F. Salim" }]
+keywords = [
+    "supply-chain", "operations-research", "milp", "monte-carlo",
+    "network-optimization", "semiconductor", "logistics", "or-tools",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Intended Audience :: Science/Research",
+]
+
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "openpyxl>=3.1",
+    "networkx>=3.1",
+    "ortools>=9.7",
+    "XlsxWriter>=3.1",
+    "tabulate>=0.9",
+]
+
+[project.optional-dependencies]
+app = ["dash>=2.16", "plotly>=5.18"]
+llm = ["requests>=2.31", "python-dotenv>=1.0"]
+dev = ["pytest>=7.4", "pytest-cov>=4.1", "ruff>=0.4"]
+all = [
+    "dash>=2.16", "plotly>=5.18",
+    "requests>=2.31", "python-dotenv>=1.0",
+    "pytest>=7.4", "pytest-cov>=4.1", "ruff>=0.4",
+]
+
+[project.scripts]
+chainguard = "chainguard.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/richelsalim/chainguard"
+Documentation = "https://github.com/richelsalim/chainguard/blob/main/docs/METHODOLOGY.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]

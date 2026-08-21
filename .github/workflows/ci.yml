@@ -1,0 +1,99 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # The claim in README.md ("this repository contains no real supply-chain data")
+  # is only worth as much as the job that enforces it. This one runs first and
+  # fails the build before any test does.
+  data-guard:
+    name: No data, no secrets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fail if a .env or a spreadsheet is tracked
+        run: |
+          offenders=$(git ls-files | grep -E '(^|/)\.env$|\.(xlsx|xlsm|xls)$' || true)
+          if [ -n "$offenders" ]; then
+            echo "::error::Tracked data/secret files found:"
+            echo "$offenders"
+            exit 1
+          fi
+          echo "No tracked .env or spreadsheet files."
+
+      - name: Fail if anything looks like an API key
+        run: |
+          # Groq (gsk_), OpenAI (sk-), AWS (AKIA) and generic assigned secrets.
+          hits=$(git grep -nIE \
+            "gsk_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|(api[_-]?key|secret|token)[\"' ]*[:=][\"' ]*[A-Za-z0-9_\-]{20,}" \
+            -- . ':!.github/workflows/ci.yml' || true)
+          if [ -n "$hits" ]; then
+            echo "::error::Possible credential committed:"
+            echo "$hits"
+            exit 1
+          fi
+          echo "No credential-shaped strings found."
+
+  test:
+    name: Test — Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[all]"
+
+      - name: Lint
+        run: python -m ruff check src tests app
+
+      - name: Test
+        run: python -m pytest -q
+
+  # Proves the headline numbers in README.md still regenerate from source.
+  benchmark:
+    name: Benchmark reproduces
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[all]"
+
+      - name: Generate synthetic data and benchmark
+        run: |
+          python -m chainguard.cli synth --out data/synthetic.xlsx
+          python -m chainguard.cli benchmark --data data/synthetic.xlsx
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: benchmark
+          path: artifacts/

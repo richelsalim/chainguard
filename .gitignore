@@ -1,0 +1,47 @@
+# --- Secrets -----------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# --- Data: nothing under data/ is ever committed except its docs -------------
+data/*
+!data/.gitkeep
+!data/README.md
+
+# Spreadsheets, anywhere in the tree
+*.xlsx
+*.xlsm
+*.xls
+*.csv
+!artifacts/benchmark.csv
+
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# --- Tooling caches ----------------------------------------------------------
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# --- Local agent / editor state ----------------------------------------------
+.claude/
+.vscode/
+.idea/
+
+# --- macOS -------------------------------------------------------------------
+.DS_Store
+
+# --- Legacy ------------------------------------------------------------------
+pipeline_output/

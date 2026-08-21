@@ -1,0 +1,819 @@
+{
+  "scenarios": {
+    "baseline": {
+      "scenario": "baseline",
+      "label": "Baseline network",
+      "candidates": {
+        "scenario": "baseline",
+        "shipments_in_scope": 240,
+        "feasible_pairs": 700,
+        "shipments_with_options": 190,
+        "unplaceable": 50,
+        "coverage": 0.7917,
+        "median_options_per_shipment": 4.0
+      },
+      "gate_ledger": [
+        {
+          "gate": "scenario",
+          "rejected_pairs": 1990
+        },
+        {
+          "gate": "hub_headroom",
+          "rejected_pairs": 278
+        },
+        {
+          "gate": "route_capacity",
+          "rejected_pairs": 159
+        },
+        {
+          "gate": "availability",
+          "rejected_pairs": 110
+        },
+        {
+          "gate": "hazard",
+          "rejected_pairs": 42
+        },
+        {
+          "gate": "cold_chain",
+          "rejected_pairs": 36
+        },
+        {
+          "gate": "lane",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "family",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "primary_excluded",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "shelf_life",
+          "rejected_pairs": 0
+        }
+      ],
+      "network": {
+        "nodes": 488,
+        "edges": 2652,
+        "density": 0.009817,
+        "weakly_connected_components": 32,
+        "largest_component": 457,
+        "mean_out_degree": 4.781
+      },
+      "critical_hubs": [
+        {
+          "hub": "BE_LOC_120",
+          "stage": "Backend",
+          "country": "China",
+          "betweenness": 0.045625,
+          "in_degree": 13,
+          "out_degree": 18
+        },
+        {
+          "hub": "BE_LOC_080",
+          "stage": "Backend",
+          "country": "Taiwan",
+          "betweenness": 0.043251,
+          "in_degree": 17,
+          "out_degree": 11
+        },
+        {
+          "hub": "BE_LOC_125",
+          "stage": "Backend",
+          "country": "Netherlands",
+          "betweenness": 0.04096,
+          "in_degree": 21,
+          "out_degree": 20
+        },
+        {
+          "hub": "BE_LOC_108",
+          "stage": "Backend",
+          "country": "Netherlands",
+          "betweenness": 0.035048,
+          "in_degree": 23,
+          "out_degree": 14
+        },
+        {
+          "hub": "SIFO_LOC_082",
+          "stage": "SIFO",
+          "country": "Germany",
+          "betweenness": 0.032613,
+          "in_degree": 13,
+          "out_degree": 18
+        }
+      ],
+      "risk_decision_flips": {
+        "shipments": 190,
+        "flipped": 15,
+        "flip_rate": 0.07894736842105263,
+        "mean_cvar_deterministic": 8.48985435949057,
+        "mean_cvar_risk_adjusted": 8.764177275481352,
+        "tail_days_saved": -0.2743229159907816
+      }
+    },
+    "port_congestion": {
+      "scenario": "port_congestion",
+      "label": "Port congestion",
+      "candidates": {
+        "scenario": "port_congestion",
+        "shipments_in_scope": 240,
+        "feasible_pairs": 918,
+        "shipments_with_options": 193,
+        "unplaceable": 47,
+        "coverage": 0.8042,
+        "median_options_per_shipment": 5.0
+      },
+      "gate_ledger": [
+        {
+          "gate": "scenario",
+          "rejected_pairs": 960
+        },
+        {
+          "gate": "hub_headroom",
+          "rejected_pairs": 453
+        },
+        {
+          "gate": "route_capacity",
+          "rejected_pairs": 216
+        },
+        {
+          "gate": "availability",
+          "rejected_pairs": 110
+        },
+        {
+          "gate": "hazard",
+          "rejected_pairs": 75
+        },
+        {
+          "gate": "cold_chain",
+          "rejected_pairs": 63
+        },
+        {
+          "gate": "lane",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "family",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "primary_excluded",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "shelf_life",
+          "rejected_pairs": 0
+        }
+      ],
+      "network": {
+        "nodes": 488,
+        "edges": 3682,
+        "density": 0.013494,
+        "weakly_connected_components": 17,
+        "largest_component": 472,
+        "mean_out_degree": 6.572
+      },
+      "critical_hubs": [
+        {
+          "hub": "BE_LOC_080",
+          "stage": "Backend",
+          "country": "Taiwan",
+          "betweenness": 0.032922,
+          "in_degree": 22,
+          "out_degree": 12
+        },
+        {
+          "hub": "SIFO_LOC_112",
+          "stage": "SIFO",
+          "country": "Netherlands",
+          "betweenness": 0.03249,
+          "in_degree": 20,
+          "out_degree": 24
+        },
+        {
+          "hub": "BE_LOC_125",
+          "stage": "Backend",
+          "country": "Netherlands",
+          "betweenness": 0.032124,
+          "in_degree": 27,
+          "out_degree": 22
+        },
+        {
+          "hub": "BE_LOC_108",
+          "stage": "Backend",
+          "country": "Netherlands",
+          "betweenness": 0.031989,
+          "in_degree": 28,
+          "out_degree": 17
+        },
+        {
+          "hub": "BE_LOC_006",
+          "stage": "Backend",
+          "country": "United Arab Emirates",
+          "betweenness": 0.031862,
+          "in_degree": 16,
+          "out_degree": 25
+        }
+      ],
+      "risk_decision_flips": {
+        "shipments": 193,
+        "flipped": 11,
+        "flip_rate": 0.05699481865284974,
+        "mean_cvar_deterministic": 7.873476650346738,
+        "mean_cvar_risk_adjusted": 7.846986998495822,
+        "tail_days_saved": 0.02648965185091612
+      }
+    },
+    "cold_chain": {
+      "scenario": "cold_chain",
+      "label": "Cold-chain restriction",
+      "candidates": {
+        "scenario": "cold_chain",
+        "shipments_in_scope": 48,
+        "feasible_pairs": 122,
+        "shipments_with_options": 36,
+        "unplaceable": 12,
+        "coverage": 0.75,
+        "median_options_per_shipment": 3.0
+      },
+      "gate_ledger": [
+        {
+          "gate": "scenario",
+          "rejected_pairs": 1990
+        },
+        {
+          "gate": "availability",
+          "rejected_pairs": 110
+        },
+        {
+          "gate": "hub_headroom",
+          "rejected_pairs": 60
+        },
+        {
+          "gate": "route_capacity",
+          "rejected_pairs": 38
+        },
+        {
+          "gate": "cold_chain",
+          "rejected_pairs": 36
+        },
+        {
+          "gate": "hazard",
+          "rejected_pairs": 10
+        },
+        {
+          "gate": "lane",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "family",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "primary_excluded",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "shelf_life",
+          "rejected_pairs": 0
+        }
+      ],
+      "network": {
+        "nodes": 488,
+        "edges": 2652,
+        "density": 0.009817,
+        "weakly_connected_components": 32,
+        "largest_component": 457,
+        "mean_out_degree": 4.781
+      },
+      "critical_hubs": [
+        {
+          "hub": "BE_LOC_120",
+          "stage": "Backend",
+          "country": "China",
+          "betweenness": 0.045625,
+          "in_degree": 13,
+          "out_degree": 18
+        },
+        {
+          "hub": "BE_LOC_080",
+          "stage": "Backend",
+          "country": "Taiwan",
+          "betweenness": 0.043251,
+          "in_degree": 17,
+          "out_degree": 11
+        },
+        {
+          "hub": "BE_LOC_125",
+          "stage": "Backend",
+          "country": "Netherlands",
+          "betweenness": 0.04096,
+          "in_degree": 21,
+          "out_degree": 20
+        },
+        {
+          "hub": "BE_LOC_108",
+          "stage": "Backend",
+          "country": "Netherlands",
+          "betweenness": 0.035048,
+          "in_degree": 23,
+          "out_degree": 14
+        },
+        {
+          "hub": "SIFO_LOC_082",
+          "stage": "SIFO",
+          "country": "Germany",
+          "betweenness": 0.032613,
+          "in_degree": 13,
+          "out_degree": 18
+        }
+      ],
+      "risk_decision_flips": {
+        "shipments": 36,
+        "flipped": 2,
+        "flip_rate": 0.05555555555555555,
+        "mean_cvar_deterministic": 9.99288037323919,
+        "mean_cvar_risk_adjusted": 10.224428758964176,
+        "tail_days_saved": -0.23154838572498626
+      }
+    },
+    "primary_hub_down": {
+      "scenario": "primary_hub_down",
+      "label": "Primary hub down",
+      "candidates": {
+        "scenario": "primary_hub_down",
+        "shipments_in_scope": 240,
+        "feasible_pairs": 719,
+        "shipments_with_options": 187,
+        "unplaceable": 53,
+        "coverage": 0.7792,
+        "median_options_per_shipment": 4.0
+      },
+      "gate_ledger": [
+        {
+          "gate": "scenario",
+          "rejected_pairs": 960
+        },
+        {
+          "gate": "primary_excluded",
+          "rejected_pairs": 594
+        },
+        {
+          "gate": "hub_headroom",
+          "rejected_pairs": 430
+        },
+        {
+          "gate": "route_capacity",
+          "rejected_pairs": 181
+        },
+        {
+          "gate": "availability",
+          "rejected_pairs": 110
+        },
+        {
+          "gate": "hazard",
+          "rejected_pairs": 75
+        },
+        {
+          "gate": "cold_chain",
+          "rejected_pairs": 63
+        },
+        {
+          "gate": "lane",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "family",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "shelf_life",
+          "rejected_pairs": 0
+        }
+      ],
+      "network": {
+        "nodes": 488,
+        "edges": 3088,
+        "density": 0.011883,
+        "weakly_connected_components": 17,
+        "largest_component": 472,
+        "mean_out_degree": 5.787
+      },
+      "critical_hubs": [
+        {
+          "hub": "BE_LOC_006",
+          "stage": "Backend",
+          "country": "United Arab Emirates",
+          "betweenness": 0.039053,
+          "in_degree": 16,
+          "out_degree": 23
+        },
+        {
+          "hub": "SIFO_LOC_112",
+          "stage": "SIFO",
+          "country": "Netherlands",
+          "betweenness": 0.035364,
+          "in_degree": 17,
+          "out_degree": 22
+        },
+        {
+          "hub": "BE_LOC_119",
+          "stage": "Backend",
+          "country": "Malaysia",
+          "betweenness": 0.032647,
+          "in_degree": 13,
+          "out_degree": 19
+        },
+        {
+          "hub": "BE_LOC_027",
+          "stage": "Backend",
+          "country": "Singapore",
+          "betweenness": 0.032392,
+          "in_degree": 16,
+          "out_degree": 13
+        },
+        {
+          "hub": "BE_LOC_080",
+          "stage": "Backend",
+          "country": "Taiwan",
+          "betweenness": 0.03211,
+          "in_degree": 18,
+          "out_degree": 12
+        }
+      ],
+      "risk_decision_flips": {
+        "shipments": 187,
+        "flipped": 7,
+        "flip_rate": 0.0374331550802139,
+        "mean_cvar_deterministic": 8.325849240004066,
+        "mean_cvar_risk_adjusted": 8.291067725846336,
+        "tail_days_saved": 0.03478151415773034
+      }
+    },
+    "air_capacity_reduced": {
+      "scenario": "air_capacity_reduced",
+      "label": "Air capacity reduced",
+      "candidates": {
+        "scenario": "air_capacity_reduced",
+        "shipments_in_scope": 240,
+        "feasible_pairs": 866,
+        "shipments_with_options": 181,
+        "unplaceable": 59,
+        "coverage": 0.7542,
+        "median_options_per_shipment": 5.0
+      },
+      "gate_ledger": [
+        {
+          "gate": "scenario",
+          "rejected_pairs": 1030
+        },
+        {
+          "gate": "route_capacity",
+          "rejected_pairs": 431
+        },
+        {
+          "gate": "hub_headroom",
+          "rejected_pairs": 374
+        },
+        {
+          "gate": "availability",
+          "rejected_pairs": 110
+        },
+        {
+          "gate": "cold_chain",
+          "rejected_pairs": 72
+        },
+        {
+          "gate": "hazard",
+          "rejected_pairs": 72
+        },
+        {
+          "gate": "lane",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "family",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "primary_excluded",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "shelf_life",
+          "rejected_pairs": 0
+        }
+      ],
+      "network": {
+        "nodes": 488,
+        "edges": 3612,
+        "density": 0.013158,
+        "weakly_connected_components": 23,
+        "largest_component": 466,
+        "mean_out_degree": 6.408
+      },
+      "critical_hubs": [
+        {
+          "hub": "BE_LOC_125",
+          "stage": "Backend",
+          "country": "Netherlands",
+          "betweenness": 0.03853,
+          "in_degree": 27,
+          "out_degree": 23
+        },
+        {
+          "hub": "SIFO_LOC_051",
+          "stage": "SIFO",
+          "country": "Japan",
+          "betweenness": 0.032942,
+          "in_degree": 16,
+          "out_degree": 10
+        },
+        {
+          "hub": "SIFO_LOC_082",
+          "stage": "SIFO",
+          "country": "Germany",
+          "betweenness": 0.032572,
+          "in_degree": 18,
+          "out_degree": 21
+        },
+        {
+          "hub": "BE_LOC_064",
+          "stage": "Backend",
+          "country": "China",
+          "betweenness": 0.031415,
+          "in_degree": 22,
+          "out_degree": 12
+        },
+        {
+          "hub": "BE_LOC_080",
+          "stage": "Backend",
+          "country": "Taiwan",
+          "betweenness": 0.031346,
+          "in_degree": 23,
+          "out_degree": 13
+        }
+      ],
+      "risk_decision_flips": {
+        "shipments": 181,
+        "flipped": 15,
+        "flip_rate": 0.08287292817679558,
+        "mean_cvar_deterministic": 8.094409980273467,
+        "mean_cvar_risk_adjusted": 8.124716958733682,
+        "tail_days_saved": -0.03030697846021546
+      }
+    },
+    "expedite_priority": {
+      "scenario": "expedite_priority",
+      "label": "Expedite priority",
+      "candidates": {
+        "scenario": "expedite_priority",
+        "shipments_in_scope": 166,
+        "feasible_pairs": 489,
+        "shipments_with_options": 134,
+        "unplaceable": 32,
+        "coverage": 0.8072,
+        "median_options_per_shipment": 4.0
+      },
+      "gate_ledger": [
+        {
+          "gate": "scenario",
+          "rejected_pairs": 1990
+        },
+        {
+          "gate": "hub_headroom",
+          "rejected_pairs": 184
+        },
+        {
+          "gate": "route_capacity",
+          "rejected_pairs": 118
+        },
+        {
+          "gate": "availability",
+          "rejected_pairs": 110
+        },
+        {
+          "gate": "hazard",
+          "rejected_pairs": 42
+        },
+        {
+          "gate": "cold_chain",
+          "rejected_pairs": 31
+        },
+        {
+          "gate": "lane",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "family",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "primary_excluded",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "shelf_life",
+          "rejected_pairs": 0
+        }
+      ],
+      "network": {
+        "nodes": 488,
+        "edges": 2652,
+        "density": 0.009817,
+        "weakly_connected_components": 32,
+        "largest_component": 457,
+        "mean_out_degree": 4.781
+      },
+      "critical_hubs": [
+        {
+          "hub": "BE_LOC_120",
+          "stage": "Backend",
+          "country": "China",
+          "betweenness": 0.05144,
+          "in_degree": 13,
+          "out_degree": 18
+        },
+        {
+          "hub": "BE_LOC_006",
+          "stage": "Backend",
+          "country": "United Arab Emirates",
+          "betweenness": 0.048564,
+          "in_degree": 10,
+          "out_degree": 22
+        },
+        {
+          "hub": "BE_LOC_125",
+          "stage": "Backend",
+          "country": "Netherlands",
+          "betweenness": 0.042831,
+          "in_degree": 21,
+          "out_degree": 20
+        },
+        {
+          "hub": "BE_LOC_017",
+          "stage": "Backend",
+          "country": "Taiwan",
+          "betweenness": 0.039783,
+          "in_degree": 19,
+          "out_degree": 15
+        },
+        {
+          "hub": "BE_LOC_080",
+          "stage": "Backend",
+          "country": "Taiwan",
+          "betweenness": 0.038709,
+          "in_degree": 17,
+          "out_degree": 11
+        }
+      ],
+      "risk_decision_flips": {
+        "shipments": 134,
+        "flipped": 44,
+        "flip_rate": 0.3283582089552239,
+        "mean_cvar_deterministic": 7.777869945319111,
+        "mean_cvar_risk_adjusted": 9.175981698367165,
+        "tail_days_saved": -1.3981117530480542
+      }
+    },
+    "sustainability": {
+      "scenario": "sustainability",
+      "label": "Sustainability",
+      "candidates": {
+        "scenario": "sustainability",
+        "shipments_in_scope": 240,
+        "feasible_pairs": 700,
+        "shipments_with_options": 190,
+        "unplaceable": 50,
+        "coverage": 0.7917,
+        "median_options_per_shipment": 4.0
+      },
+      "gate_ledger": [
+        {
+          "gate": "scenario",
+          "rejected_pairs": 1990
+        },
+        {
+          "gate": "hub_headroom",
+          "rejected_pairs": 278
+        },
+        {
+          "gate": "route_capacity",
+          "rejected_pairs": 159
+        },
+        {
+          "gate": "availability",
+          "rejected_pairs": 110
+        },
+        {
+          "gate": "hazard",
+          "rejected_pairs": 42
+        },
+        {
+          "gate": "cold_chain",
+          "rejected_pairs": 36
+        },
+        {
+          "gate": "lane",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "family",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "primary_excluded",
+          "rejected_pairs": 0
+        },
+        {
+          "gate": "shelf_life",
+          "rejected_pairs": 0
+        }
+      ],
+      "network": {
+        "nodes": 488,
+        "edges": 2652,
+        "density": 0.009817,
+        "weakly_connected_components": 32,
+        "largest_component": 457,
+        "mean_out_degree": 4.781
+      },
+      "critical_hubs": [
+        {
+          "hub": "BE_LOC_120",
+          "stage": "Backend",
+          "country": "China",
+          "betweenness": 0.045825,
+          "in_degree": 13,
+          "out_degree": 18
+        },
+        {
+          "hub": "BE_LOC_080",
+          "stage": "Backend",
+          "country": "Taiwan",
+          "betweenness": 0.041813,
+          "in_degree": 17,
+          "out_degree": 11
+        },
+        {
+          "hub": "BE_LOC_125",
+          "stage": "Backend",
+          "country": "Netherlands",
+          "betweenness": 0.040037,
+          "in_degree": 21,
+          "out_degree": 20
+        },
+        {
+          "hub": "BE_LOC_006",
+          "stage": "Backend",
+          "country": "United Arab Emirates",
+          "betweenness": 0.039432,
+          "in_degree": 10,
+          "out_degree": 22
+        },
+        {
+          "hub": "BE_LOC_108",
+          "stage": "Backend",
+          "country": "Netherlands",
+          "betweenness": 0.038134,
+          "in_degree": 23,
+          "out_degree": 14
+        }
+      ],
+      "risk_decision_flips": {
+        "shipments": 190,
+        "flipped": 53,
+        "flip_rate": 0.2789473684210526,
+        "mean_cvar_deterministic": 9.460012845020627,
+        "mean_cvar_risk_adjusted": 8.764177275481352,
+        "tail_days_saved": 0.6958355695392751
+      }
+    }
+  },
+  "source": "data/synthetic.xlsx",
+  "elapsed_seconds": 27.63,
+  "headline": {
+    "scenarios_evaluated": 7,
+    "greedy_hub_violations": 100,
+    "greedy_excess_units": 242120.0,
+    "greedy_plans_executable": 0,
+    "repair_objective": 2.526086,
+    "milp_objective": 2.475113,
+    "milp_vs_repair_improvement_pct": 2.02,
+    "best_split_objective": 1.10357,
+    "repair_mean_score": 0.2017,
+    "milp_mean_score": 0.199678,
+    "milp_all_executable": true,
+    "milp_proven_optimal": 7,
+    "milp_mean_solve_seconds": 0.011,
+    "milp_coverage": 0.7678,
+    "best_split_method": "milp_split3",
+    "best_split_coverage": 0.9106,
+    "split_vs_milp_improvement_pct": 55.41,
+    "sla_mean_on_time_probability": 0.9175,
+    "milp_mean_on_time_probability": 0.8408,
+    "sla_coverage_cost": 0.2163
+  }
+}
